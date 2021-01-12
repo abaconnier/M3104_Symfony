@@ -12,4 +12,9 @@ class ProStageController extends AbstractController
     {
         return $this->render('pro_stage/index.html.twig');
     }
+
+    public function afficherRessources(): Response
+    {
+        return $this->render('pro_stage/affichageRessource.html.twig');
+    }
 }
