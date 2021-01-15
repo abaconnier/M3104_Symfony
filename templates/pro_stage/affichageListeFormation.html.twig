@@ -1,0 +1,22 @@
+{% extends'base.html.twig' %}
+
+{% block body %}
+<h1>Liste des formations pour lesquelle des stages sont proposes :</h1>
+
+<p>
+  Cette page affichera la liste des formations pour lesquelles des
+  stages sont proposes.
+</p>
+
+<ul>
+  <li>
+    <a href="{{path('proStage_stageFormation',{idF:'BTS Patisserie'})}}"> Formation "BTS Patisserie" </a>
+  </li>
+  <li>
+    <a href="{{path('proStage_stageFormation',{idF:'DUT Informatique'})}}"> Formation "DUT Informatique" </a>
+  </li>
+  <li>
+    <a href="{{path('proStage_stageFormation',{idF:'DNSPM Piano'})}}"> Formation "DNSPM Piano" </a>
+  </li>
+</ul>
+{% endblock %}

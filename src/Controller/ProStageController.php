@@ -46,4 +46,23 @@ class ProStageController extends AbstractController
         ['idEntreprise'=>$idE]);
     }
 
+    /**
+     * @Route("/listeFormation", name="proStage_listeFormation")
+     */
+
+    public function afficherListeFormation(): Response
+    {
+        return $this->render('pro_stage/affichageListeFormation.html.twig');
+    }
+
+    /**
+     * @Route("/stageFormation/{idF}", name="proStage_stageFormation")
+     */
+
+    public function afficherStageFormation($idF): Response
+    {
+        return $this->render('pro_stage/affichageStageFormation.html.twig',
+        ['idFormation'=>$idF]);
+    }
+
 }
