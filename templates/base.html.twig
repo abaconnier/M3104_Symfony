@@ -12,6 +12,9 @@
 
         {% block menu %}
           <h1> ---------- MENU ---------- </h1>
+          <a href="{{path('proStage_accueil')}}"> Toutes les annonces </a>
+          <a href="{{path('proStage_stageEntreprise',{idE:'entreprise'})}}"> Filtrer par entreprise </a>
+          <a href="{{path('proStage_stageFormation',{idF:'formation'})}}"> Filtrer par formation </a>
         {% endblock %}
 
         {% block body %}
