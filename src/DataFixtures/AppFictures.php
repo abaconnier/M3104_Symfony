@@ -10,9 +10,12 @@ class AppFictures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        // Creation d'un generateur de donnees Faker
+        $faker = \Faker\Factory::create('fr_FR');
+
         $stage1 = new Stage();
-        $stage1->setIntitule("Stage patissier");
-        $stage1->setMission("Faire des gâteaux et des chocolatines !");
+        $stage1->setIntitule($faker->regexify('Stage[1-5]'));
+        $stage1->setMission($faker->realText($maxNbChars = 25, $indexSize = 2));
         $stage1->setAdresseMail("labordepatisser@gmail.com");
         $manager->persist($stage1);
 
