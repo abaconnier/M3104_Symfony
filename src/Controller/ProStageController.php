@@ -28,7 +28,16 @@ class ProStageController extends AbstractController
     }
 
     /**
-     * @Route("/listeEntreprise", name="proStage_entreprise")
+     * @Route("/listeEntreprise", name="proStage_listeEntreprise")
+     */
+
+    public function afficherListeEntreprise(): Response
+    {
+        return $this->render('pro_stage/affichageListeEntreprise.html.twig');
+    }
+
+    /**
+     * @Route("/stageEntreprise", name="proStage_stageEntreprise")
      */
 
     public function afficherStageEntreprise(): Response
