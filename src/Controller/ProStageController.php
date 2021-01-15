@@ -21,10 +21,10 @@ class ProStageController extends AbstractController
      * @Route("/stage/{id}", name="proStage_stage")
      */
 
-    public function afficherStage($id): Response
+    public function afficherStage($idS): Response
     {
         return $this->render('pro_stage/affichageStage.html.twig',
-        ['idStage'=>$id]);
+        ['idStage'=>$idS]);
     }
 
     /**
@@ -37,12 +37,13 @@ class ProStageController extends AbstractController
     }
 
     /**
-     * @Route("/stageEntreprise", name="proStage_stageEntreprise")
+     * @Route("/stageEntreprise/{idE}", name="proStage_stageEntreprise")
      */
 
-    public function afficherStageEntreprise(): Response
+    public function afficherStageEntreprise($idE): Response
     {
-        return $this->render('pro_stage/affichageStageEntreprise.html.twig');
+        return $this->render('pro_stage/affichageStageEntreprise.html.twig',
+        ['idEntreprise'=>$idE]);
     }
 
 }

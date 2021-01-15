@@ -1,0 +1,22 @@
+{% extends'base.html.twig' %}
+
+{% block body %}
+<h1>Liste des entreprises proposant un stage</h1>
+
+<p>
+  Cette page affichera la liste des entreprises qui proposent
+  des stages.
+</p>
+
+<ul>
+  <li>
+    <a href="{{path('proStage_stageEntreprise',{idE:'Laborde Patissier'})}}"> Entreprise "Laborde Patissier" </a>
+  </li>
+  <li>
+    <a href="{{path('proStage_stageEntreprise',{idE:'Arobiz'})}}"> Entreprise "Arobiz" </a>
+  </li>
+  <li>
+    <a href="{{path('proStage_stageEntreprise',{idE:'Maurice Ravel'})}}"> Entreprise "Maurice Ravel" </a>
+  </li>
+</ul>
+{% endblock %}
