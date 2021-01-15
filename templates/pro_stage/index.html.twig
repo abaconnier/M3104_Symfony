@@ -1,22 +1,24 @@
 {% extends'base.html.twig' %}
 
 {% block body %}
-<h1>Bienvenue sur proStage !</h1>
+  <h1>Bienvenue sur proStage !</h1>
 
-<p>
-  Vous trouverez ci-dessous les annonce d'offres de stage
-  susceptibles de vous interesser.
-</p>
+  <p>
+    Vous trouverez ci-dessous les annonce d'offres de stage
+    susceptibles de vous interesser.
+    </p>
 
-<ul>
-  <li>
-    <a href="{{path('proStage_stage',{idS:'patissier'})}}"> Stage de patissier </a>
-  </li>
-  <li>
-    <a href="{{path('proStage_stage',{idS:'web'})}}"> Stage de web </a>
-  </li>
-  <li>
-    <a href="{{path('proStage_stage',{idS:'piano'})}}"> Stage de piano </a>
-  </li>
-</ul>
+
+
+  <ul>
+    <li>
+      <a href="{{path('proStage_stage',{idS:'patissier'})}}"> Stage de patissier </a>
+    </li>
+    <li>
+      <a href="{{path('proStage_stage',{idS:'web'})}}"> Stage de web </a>
+    </li>
+    <li>
+      <a href="{{path('proStage_stage',{idS:'piano'})}}"> Stage de piano </a>
+    </li>
+  </ul>
 {% endblock %}

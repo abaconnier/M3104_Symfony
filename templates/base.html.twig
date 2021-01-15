@@ -15,17 +15,46 @@
         {% endblock %}
     </head>
     <body>
+      <div class="container-fluid">
         <!-- BLOCK TITRE -->
         {% block titre %}
-          <h1>ProStage</h1>
+        <div class="row">
+        		<div class="col-md-12">
+        			<h3>
+        				ProStage
+        			</h3>
+        		</div>
+        </div>
         {% endblock %}
 
         <!-- BLOCK MENU -->
         {% block menu %}
-          <h1> ---------- MENU ---------- <!-- <i>class="icon-user"</i> --> </h1>
+        <div class="row">
+        		<div class="col-md-12">
+        			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        					<ul class="navbar-nav">
+        						<li class="nav-item">
+        							 <a class="nav-link" href="{{path('proStage_accueil')}}">Toutes les annonces </a>
+        						</li>
+        						<li class="nav-item">
+        							 <a class="nav-link" href="{{path('proStage_listeEntreprise',{idE:'entreprise'})}}">Filtrer par entreprise</a>
+        						</li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="{{path('proStage_listeFormation',{idF:'formation'})}}">Filtrer par formation</a>
+                    </li>
+        				</div>
+        			</nav>
+        		</div>
+        </div>
+
+          <!--
+          <h1>MENU  <i>class="icon-user"</i></h1>
+
           <a href="{{path('proStage_accueil')}}"> Toutes les annonces </a>
           <a href="{{path('proStage_listeEntreprise',{idE:'entreprise'})}}"> Filtrer par entreprise </a>
           <a href="{{path('proStage_listeFormation',{idF:'formation'})}}"> Filtrer par formation </a>
+          -->
         {% endblock %}
 
         {% block body %}
@@ -40,5 +69,6 @@
           <script src="{{asset('/js/bootstrap.min.js')}}"
           integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
         {% endblock %}
+      </div>
     </body>
 </html>
