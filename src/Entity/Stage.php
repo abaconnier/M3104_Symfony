@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\StageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,27 +20,7 @@ class Stage
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=150)
-     */
-    private $nom;
-
-    /**
      * @ORM\Column(type="string", length=255)
-     */
-    private $activite;
-
-    /**
-     * @ORM\Column(type="string", length=150)
-     */
-    private $adresse;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $no;
-
-    /**
-     * @ORM\Column(type="string", length=150)
      */
     private $intitule;
 
@@ -48,61 +30,28 @@ class Stage
     private $mission;
 
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adresseMail;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Entreprise::class, inversedBy="stage")
+     */
+    private $entreprise;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Formation::class, mappedBy="stage")
+     */
+    private $formations;
+
+    public function __construct()
+    {
+        $this->formations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getActivite(): ?string
-    {
-        return $this->activite;
-    }
-
-    public function setActivite(string $activite): self
-    {
-        $this->activite = $activite;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?string
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse(string $adresse): self
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getNo(): ?string
-    {
-        return $this->no;
-    }
-
-    public function setNo(string $no): self
-    {
-        $this->no = $no;
-
-        return $this;
     }
 
     public function getIntitule(): ?string
@@ -134,9 +83,48 @@ class Stage
         return $this->adresseMail;
     }
 
-    public function setAdresseMail(string $adresseMail): self
+    public function setAdresseMail(?string $adresseMail): self
     {
         $this->adresseMail = $adresseMail;
+
+        return $this;
+    }
+
+    public function getEntreprise(): ?Entreprise
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?Entreprise $entreprise): self
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Formation[]
+     */
+    public function getFormations(): Collection
+    {
+        return $this->formations;
+    }
+
+    public function addFormation(Formation $formation): self
+    {
+        if (!$this->formations->contains($formation)) {
+            $this->formations[] = $formation;
+            $formation->addStage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFormation(Formation $formation): self
+    {
+        if ($this->formations->removeElement($formation)) {
+            $formation->removeStage($this);
+        }
 
         return $this;
     }
