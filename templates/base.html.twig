@@ -9,6 +9,9 @@
         {% block stylesheets %}
         <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+        <link href="{{asset('/css/fontello.css')}}" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         {% endblock %}
     </head>
     <body>
@@ -19,7 +22,7 @@
 
         <!-- BLOCK MENU -->
         {% block menu %}
-          <h1> ---------- MENU ---------- </h1>
+          <h1> ---------- MENU ---------- <!-- <i>class="icon-user"</i> --> </h1>
           <a href="{{path('proStage_accueil')}}"> Toutes les annonces </a>
           <a href="{{path('proStage_listeEntreprise',{idE:'entreprise'})}}"> Filtrer par entreprise </a>
           <a href="{{path('proStage_listeFormation',{idF:'formation'})}}"> Filtrer par formation </a>
