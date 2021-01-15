@@ -18,7 +18,7 @@ class ProStageController extends AbstractController
     }
 
     /**
-     * @Route("/stage/{id}", name="proStage_stage")
+     * @Route("/stage/{idS}", name="proStage_stage")
      */
 
     public function afficherStage($idS): Response
